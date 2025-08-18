@@ -28,50 +28,45 @@ export default function Simulation(){
     };
 
     return(
-        <div className="bg-gray-900 min-h-screen p-4 sm:p-8 text-white">
-            <div className="max-w-4xl mx-auto">
+        <div className="bg-gray-900 p-10 sm:p-8 text-white h-screen">
+            <div className="flex flex-col items-center justify-center w-auto md:w-xl lg:w-7xl">
                 <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center font-poppins">
                 Poker Simulation
                 </h1>
 
                 {/* Grup 1: 3 Kartu */}
                 <div className="mb-6">
-                <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Community Cards</h2>
-                <div className="flex justify-center gap-2 sm:gap-4">
-                    {cards.slice(0, 3).map((card, index) => (
-                    <CardSlot key={index} card={card} onClick={() => handleSlotClick(index)} />
-                    ))}
-                </div>
+                    <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Top Card</h2>
+                    <div className="flex justify-center gap-2 sm:gap-10">
+                        {cards.slice(0, 3).map((card, index) => (
+                        <CardSlot key={index} card={card} onClick={() => handleSlotClick(index)} />
+                        ))}
+                    </div>
                 </div>
 
                 {/* Grup 2: 5 Kartu */}
                 <div className="mb-6">
-                <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Player 1 Hand</h2>
-                <div className="flex justify-center gap-2 sm:gap-4">
-                    {cards.slice(3, 8).map((card, index) => (
-                    // Penting: index di sini adalah 0-4, jadi kita tambahkan 3 untuk dapat index asli 3-7
-                    <CardSlot key={index + 3} card={card} onClick={() => handleSlotClick(index + 3)} />
-                    ))}
-                </div>
+                    <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Middle Card</h2>
+                    <div className="flex justify-center gap-2 sm:gap-10">
+                        {cards.slice(3, 8).map((card, index) => (
+                        // Penting: index di sini adalah 0-4, jadi tambahkan 3 untuk dapat index asli 3-7
+                        <CardSlot key={index + 3} card={card} onClick={() => handleSlotClick(index + 3)} />
+                        ))}
+                    </div>
                 </div>
                 
                 {/* Grup 3: 5 Kartu */}
                 <div>
-                <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Player 2 Hand</h2>
-                <div className="flex justify-center gap-2 sm:gap-4">
-                    {cards.slice(8, 13).map((card, index) => (
-                    // Penting: index di sini adalah 0-4, jadi kita tambahkan 8 untuk dapat index asli 8-12
-                    <CardSlot key={index + 8} card={card} onClick={() => handleSlotClick(index + 8)} />
-                    ))}
-                </div>
+                    <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Bottom Card</h2>
+                    <div className="flex justify-center gap-2 sm:gap-10">
+                        {cards.slice(8, 13).map((card, index) => (
+                        <CardSlot key={index + 8} card={card} onClick={() => handleSlotClick(index + 8)} />
+                        ))}
+                    </div>
                 </div>
 
-                {/* Tampilkan Modal hanya jika isModalOpen bernilai true */}
                 {isModalOpen && (
-                <CardPickerModal 
-                    onCardSelect={handleCardSelect} 
-                    onClose={handleCloseModal} 
-                />
+                    <CardPickerModal onCardSelect={handleCardSelect} onClose={handleCloseModal}/>
                 )}
             </div>
         </div>
