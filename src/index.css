@@ -14,3 +14,9 @@ body {
   border-radius: 6px;
   display: block;
 }
+
+.modal-card-container.disabled {
+  opacity: 0.4;
+  filter: grayscale(100%); /* Membuat kartu menjadi abu-abu */
+  cursor: not-allowed; /* Mengubah kursor mouse */
+}

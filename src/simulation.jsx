@@ -66,7 +66,7 @@ export default function Simulation(){
                 </div>
 
                 {isModalOpen && (
-                    <CardPickerModal onCardSelect={handleCardSelect} onClose={handleCloseModal}/>
+                    <CardPickerModal onCardSelect={handleCardSelect} onClose={handleCloseModal} selectedCards={cards}/>
                 )}
             </div>
         </div>

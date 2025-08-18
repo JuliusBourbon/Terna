@@ -19,8 +19,8 @@ const getCardClasses = (cardId) => {
     return `pcard-${rank.toLowerCase()}${suit.toLowerCase()}`;
 };
 
-export default function CardPickerModel({onCardSelect, onClose}){
-    console.log(Deck);
+export default function CardPickerModel({onCardSelect, onClose, selectedCards}){
+    // console.log(Deck);
     return (
         <div className='fixed inset-0 flex justify-center items-center z-50'>
             <div className='bg-gray-950/80 backdrop-blur-xs px-10 pt-10 pb-20 rounded-md shadow-xl h-full w-full'>
@@ -30,11 +30,14 @@ export default function CardPickerModel({onCardSelect, onClose}){
                 </div>
 
                 <div className='grid grid-cols-7 lg:grid-cols-13'>
-                    {Deck.map((cardId) => (
-                        <div key={cardId} className="relative w-14 h-20 my-3 lg:my-15" onClick={() => onCardSelect(cardId)}>
-                            <span className={`${getCardClasses(cardId)} cursor-pointer absolute scale-[0.27] md:scale-[0.3] lg:scale-[0.5] origin-top-left hover:opacity-70 transition-transform duration-150`}></span>
-                        </div>
-                    ))}
+                    {Deck.map((cardId) => {
+                        const isSelected = selectedCards.includes(cardId);
+                        return (
+                            <div key={cardId} className={`modal-card-container ${isSelected ? 'disabled' : ''} relative w-14 h-20 my-3 lg:my-15`} onClick={() => {if (!isSelected) {onCardSelect(cardId);}}}>
+                                <span className={`${getCardClasses(cardId)} cursor-pointer absolute scale-[0.27] md:scale-[0.3] lg:scale-[0.5] origin-top-left hover:opacity-70 transition-transform duration-150`}></span>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </div>
