@@ -9,7 +9,7 @@ import './index.css'
 
 export default function App() {
   return (
-    <div className="bg-slate-900 shadow-lg w-screen h-screen flex flex-col">
+    <div className="bg-slate-900 shadow-lg w-screen h-screen flex flex-col overflow-x-hidden">
       <Navbar />
       <Routes>
         <Route path='/' element={<Home/>}></Route>

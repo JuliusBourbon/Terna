@@ -63,11 +63,11 @@ export default function Simulation(){
     };
 
     return(
-        <div className="bg-slate-900 py-10 sm:py-8 flex justify-around text-white items-center">
+        <div className="bg-gradient-to-b from-slate-900 to-slate-700/30 py-10 sm:py-8 flex justify-around text-white items-center">
             <div className="flex flex-col items-center justify-start">
-                <div className="bg-gray-300/10 border-2 border-gray-600 border-dashed p-5 rounded-md">
+                <div className="border-2 border-gray-600 border-dashed p-5 rounded-md">
                     <h1 className="text-lg font-bold mb-2">Combination Point</h1>
-                    <div className="bg-gray-800 text-white rounded-lg max-w-xs shadow-lg">
+                    <div className="text-white rounded-lg max-w-xs shadow-lg">
                         <p className="flex justify-between my-2">
                             <span>High Card:</span>
                             <span className="text-yellow-400 font-bold">1</span>
@@ -120,7 +120,7 @@ export default function Simulation(){
             </div>
             <div className="flex flex-col items-center justify-center">
                 <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center font-poppins">
-                    Poker Simulation
+                    Simulation
                 </h1>
                 {/* Grup 1: 3 Kartu */}
                 <div className="mb-6">
@@ -179,8 +179,8 @@ export default function Simulation(){
                 )}
 
                 <div className="mt-12 flex gap-4">
-                    <button onClick={handleAutoFill} className=" font-bold text-lg bg-red-600 px-3 py-2 rounded-md hover:bg-red-700 cursor-pointer">Shuffle Card</button>
-                    <button onClick={handleSort} className=" font-bold text-lg bg-blue-600 px-3 py-2 rounded-md hover:bg-blue-700 cursor-pointer">Sort Card</button>
+                    <button onClick={handleAutoFill} className=" font-bold text-lg bg-gradient-to-br from-[#ff2400]/80 to-pink-500/80 px-3 py-2 rounded-md hover:scale-[1.04] cursor-pointer">Shuffle Card</button>
+                    <button onClick={handleSort} className=" font-bold text-lg bg-gradient-to-br from-slate-900 to-slate-700 px-3 py-2 rounded-md hover:scale-[1.04] cursor-pointer">Sort Card</button>
                 </div>
             </div>
             <div className="flex flex-col items-center justify-start">
