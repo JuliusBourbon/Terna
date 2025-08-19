@@ -1,13 +1,26 @@
-import {Link} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-export default function Navbar(){
-    return(
-        <nav className='flex items-center justify-between p-4 bg-white shadow-md rounded-t-lg'>
-            <div className='flex justify-between gap-5'>
-                <Link to="/" className=' cursor-pointer p-4 hover:bg-gray-400 rounded-md shadow-md transition'>Home Page</Link>
-                <Link to="/Simulation" className=' cursor-pointer p-4 hover:bg-gray-400 rounded-md shadow-md transition'>Simulation</Link>
-                <Link to="/Credit" className=' cursor-pointer p-4 hover:bg-gray-400 rounded-md shadow-md transition'>Credit</Link>
-            </div>
-        </nav>
-    )
-}
+const Navbar = () => {
+  const linkClassName = ({ isActive }) =>
+    `text-gray-500 transition duration-300 ease-in-out hover:text-gray-900 ${
+      isActive ? 'font-semibold text-gray-900' : ''
+    }`;
+
+  return (
+    <nav className='w-full bg-white border-b border-gray-200'>
+      <div className='container mx-auto flex items-center justify-between p-4'>
+        <div className='text-lg font-bold text-gray-800'>
+          <NavLink to="/">Best Hand</NavLink>
+        </div>
+
+        <div className='flex items-center space-x-8'>
+          <NavLink to="/" className={linkClassName}>Home</NavLink>
+          <NavLink to="/simulation" className={linkClassName}>Simulation</NavLink>
+          <NavLink to="/credit" className={linkClassName}>Credit</NavLink>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;

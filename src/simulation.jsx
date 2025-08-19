@@ -28,8 +28,8 @@ export default function Simulation(){
     };
 
     return(
-        <div className="bg-gray-900 p-10 sm:p-8 text-white h-screen">
-            <div className="flex flex-col items-center justify-center w-auto md:w-xl lg:w-7xl">
+        <div className="bg-slate-900 py-10 sm:py-8 text-white">
+            <div className="flex flex-col items-center justify-center">
                 <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center font-poppins">
                 Poker Simulation
                 </h1>
