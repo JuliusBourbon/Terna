@@ -1,51 +1,64 @@
 import { Link } from 'react-router-dom';
 export default function Home(){
     return(
-        <div className="min-h-screen bg-slate-900 text-white">
+        <div className="bg-slate-900 text-white">
             <section className="text-center py-20 px-4">
                 <div className="container mx-auto">
-                    <h1 className="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                    <h1 className="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-blue-500 to-cyan-300 bg-clip-text text-transparent">
                         Chinese Poker Sorter
                     </h1>
                     
-                    <p className="max-w-2xl mx-auto text-lg text-slate-300 mb-8">
-                        Ucapkan selamat tinggal pada penyortiran kartu manual. Aplikasi kami akan secara otomatis menyusun 13 kartu Anda menjadi barisan depan, tengah, dan belakang yang optimal dalam sekejap.
+                    <p className="max-w-2xl mx-auto text-xl text-slate-200 font-extrabold">
+                        Say goodbye to manual card sorting!
+                    </p>
+                    <p className='max-w-2xl mx-auto text-lg text-slate-300 mb-8'>
+                        Our app instantly arranges your 13 cards into the front, middle, and back rows in the most optimal way.
                     </p>
                     
                     <Link to="/simulation" 
-                    className="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105 duration-300 ease-in-out">
-                        Mulai Simulasi
+                    className="inline-block bg-gradient-to-br from-blue-400 to-cyan-500 text-white font-bold text-lg px-8 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105 duration-300 ease-in-out">
+                        Start Simulation
                     </Link>
                 </div>
             </section>
 
-            <section className="py-20 bg-slate-800/50">
+            <section className="py-20 bg-slate-800/50 mb-20">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white">Bagaimana Cara Kerjanya?</h2>
-                        <p className="text-slate-400 mt-2">Hanya dalam tiga langkah mudah.</p>
+                        <h2 className="text-3xl md:text-4xl font-bold text-white">What is Chinese Poker?</h2>
+                        <p className="text-slate-400 text-lg mt-2">
+                            Chinese Poker (Capsa Susun) is a card game where each player gets 13 cards and arranges them into three hands: front (3 cards), middle (5 cards), and back (5 cards). The back hand must be the strongest, followed by the middle, then the front. Players compare hands and earn points — it’s all about smart strategy and a bit of luck!
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section className="py-20 bg-slate-800/50 mb-20">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white">How is this Works?</h2>
+                        <p className="text-slate-400 text-lg mt-2">In just <span className='font-bold text-blue-200'>3</span> easy steps</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8 text-center">
                         
                         <div className="bg-slate-800 p-8 rounded-xl shadow-md">
-                            <h3 className="text-xl font-semibold mb-2">Input Kartu Anda</h3>
+                            <h3 className="text-xl font-semibold mb-2">Pick your card</h3>
                             <p className="text-slate-400">
-                                Masukkan 13 kartu yang Anda dapatkan. Sistem kami dapat mengenali berbagai format input.
+                                Enter the 13 cards you want, our system can recognize multiple input formats. Or, if you prefer, just shuffle the cards randomly.
                             </p>
                         </div>
 
                         <div className="bg-slate-800 p-8 rounded-xl shadow-md">
-                            <h3 className="text-xl font-semibold mb-2">Proses Sorting Cerdas</h3>
+                            <h3 className="text-xl font-semibold mb-2">Sorting Card</h3>
                             <p className="text-slate-400">
-                                Algoritma kami menganalisis jutaan kemungkinan kombinasi untuk menemukan susunan terbaik.
+                                Using <span className='text-white font-bold'>Greedy Algorithm</span> , the system picks the best combo in no time!
                             </p>
                         </div>
 
                         <div className="bg-slate-800 p-8 rounded-xl shadow-md">
-                            <h3 className="text-xl font-semibold mb-2">Lihat Hasil Optimal</h3>
+                            <h3 className="text-xl font-semibold mb-2">Optimal Results</h3>
                             <p className="text-slate-400">
-                                Dapatkan susunan kartu depan, tengah, dan belakang yang sudah dioptimalkan dan siap digunakan.
+                                Get your front, middle, and back cards setup optimized and <span className='text-white font-bold'>Ready to Play!</span>
                             </p>
                         </div>
 

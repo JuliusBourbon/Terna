@@ -2,6 +2,7 @@ import {useState} from "react";
 import CardSlot from "./CardSlot";
 import CardPickerModal from "./CardPickerModal";
 import { greedyCapsa } from "./utils/greedy";
+import { Deck } from "./utils/cards";
 
 export default function Simulation(){
     const [handInfo, setHandInfo] = useState({ top: null, middle: null, bottom: null });
@@ -50,64 +51,141 @@ export default function Simulation(){
         setHandInfo(sorted);
     };
 
+    function getRandomCards(n) {
+        const shuffled = [...Deck].sort(() => Math.random() - 0.5);
+        return shuffled.slice(0, n);
+    }
+
+    const handleAutoFill = () => {
+        const random13 = getRandomCards(13);
+        setCards(random13);
+        setHandInfo({ top: null, middle: null, bottom: null });
+    };
+
     return(
-        <div className="bg-slate-900 py-10 sm:py-8 text-white">
+        <div className="bg-slate-900 py-10 sm:py-8 flex justify-around text-white items-center">
+            <div className="flex flex-col items-center justify-start">
+                <div className="bg-gray-300/10 border-2 border-gray-600 border-dashed p-5 rounded-md">
+                    <h1 className="text-lg font-bold mb-2">Combination Point</h1>
+                    <div className="bg-gray-800 text-white rounded-lg max-w-xs shadow-lg">
+                        <p className="flex justify-between my-2">
+                            <span>High Card:</span>
+                            <span className="text-yellow-400 font-bold">1</span>
+                        </p>
+                        <p className="flex justify-between my-2">
+                            <span>Pair:</span>
+                            <span className="text-yellow-400 font-bold">2</span>
+                        </p>
+                        <p className="flex justify-between my-2">
+                            <span>Two Pair:</span>
+                            <span className="text-yellow-400 font-bold">3</span>
+                        </p>
+                        <p className="flex justify-between my-2">
+                            <span>Three of a Kind:</span>
+                            <span className="text-yellow-400 font-bold">4</span>
+                        </p>
+                        <p className="flex justify-between my-2">
+                            <span>Straight:</span>
+                            <span className="text-yellow-400 font-bold">5</span>
+                        </p>
+                        <p className="flex justify-between my-2">
+                            <span>Flush:</span>
+                            <span className="text-yellow-400 font-bold">6</span>
+                        </p>
+                        <p className="flex justify-between my-2">
+                            <span>Full House:</span>
+                            <span className="text-yellow-400 font-bold">7</span>
+                        </p>
+                        <p className="flex justify-between my-2">
+                            <span>Four of a Kind:</span>
+                            <span className="text-yellow-400 font-bold">8</span>
+                        </p>
+                        <p className="flex justify-between my-2">
+                            <span>Straight Flush:</span>
+                            <span className="text-yellow-400 font-bold">9</span>
+                        </p>
+                        <p className="flex justify-between my-2">
+                            <span>Royal Flush:</span>
+                            <span className="text-yellow-400 font-bold">10</span>
+                        </p>
+                    </div>
+                </div>
+                    {handInfo.totalScore && (
+                        <div className="mt-10 text-center">
+                            <h3 className="text-3xl font-bold">
+                            Total Point: <span className="text-green-400">{handInfo.totalScore}</span>
+                            </h3>
+                        </div>
+                    )}
+            </div>
             <div className="flex flex-col items-center justify-center">
                 <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center font-poppins">
-                Poker Simulation
+                    Poker Simulation
                 </h1>
-
                 {/* Grup 1: 3 Kartu */}
                 <div className="mb-6">
-                    <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Top Card</h2>
+                    <div className="flex justify-between items-center">
+                        <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Top Card</h2>
+                        {handInfo.top && (
+                            <p className="text-center text-xl mt-2 mb-3 text-yellow-400 font-bold">
+                            {handInfo.top.name} {handInfo.top.score}
+                            </p>
+                        )}
+                    </div>
                     <div className="flex justify-center gap-2 sm:gap-10">
                         {cards.slice(0, 3).map((card, index) => (
-                        <CardSlot key={index} card={card} onClick={() => handleSlotClick(index)} />
+                            <CardSlot key={index} card={card} onClick={() => handleSlotClick(index)} />
                         ))}
                     </div>
-                    {handInfo.top && (
-                        <p className="text-center mt-2 text-yellow-400 font-semibold">
-                        {handInfo.top.name}
-                        </p>
-                    )}
                 </div>
 
                 {/* Grup 2: 5 Kartu */}
                 <div className="mb-6">
-                    <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Middle Card</h2>
+                    <div className="flex justify-between items-center">
+                        <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Middle Card</h2>
+                        {handInfo.middle && (
+                            <p className="text-center text-xl mt-2 mb-3 text-yellow-400 font-bold">
+                                {handInfo.middle.name} {handInfo.middle.score}
+                            </p>
+                        )}
+                    </div>
                     <div className="flex justify-center gap-2 sm:gap-10">
                         {cards.slice(3, 8).map((card, index) => (
                         <CardSlot key={index + 3} card={card} onClick={() => handleSlotClick(index + 3)} />
                         ))}
                     </div>
-                    {handInfo.middle && (
-                        <p className="text-center mt-2 text-yellow-400 font-semibold">
-                        {handInfo.middle.name}
-                        </p>
-                    )}
                 </div>
                 
                 {/* Grup 3: 5 Kartu */}
                 <div>
-                    <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Bottom Card</h2>
+                    <div className="flex justify-between items-center">
+                        <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Bottom Card</h2>
+                        {handInfo.bottom && (
+                            <p className="text-center text-xl mt-2 mb-3 text-yellow-400 font-bold">
+                            {handInfo.bottom.name} {handInfo.bottom.score}
+                            </p>
+                        )}
+
+                    </div>
                     <div className="flex justify-center gap-2 sm:gap-10">
                         {cards.slice(8, 13).map((card, index) => (
                         <CardSlot key={index + 8} card={card} onClick={() => handleSlotClick(index + 8)} />
                         ))}
                     </div>
-                    {handInfo.bottom && (
-                        <p className="text-center mt-2 text-yellow-400 font-semibold">
-                        {handInfo.bottom.name}
-                        </p>
-                    )}
                 </div>
 
                 {isModalOpen && (
                     <CardPickerModal onCardSelect={handleCardSelect} onClose={handleCloseModal} selectedCards={cards}/>
                 )}
 
-                <div className="mt-20">
+                <div className="mt-12 flex gap-4">
+                    <button onClick={handleAutoFill} className=" font-bold text-lg bg-red-600 px-3 py-2 rounded-md hover:bg-red-700 cursor-pointer">Shuffle Card</button>
                     <button onClick={handleSort} className=" font-bold text-lg bg-blue-600 px-3 py-2 rounded-md hover:bg-blue-700 cursor-pointer">Sort Card</button>
+                </div>
+            </div>
+            <div className="flex flex-col items-center justify-start">
+                <div className="bg-gray-300/10 border-2 border-gray-600 border-dashed p-10 opacity-0">
+                    <h1 className="text-">Other Combination</h1>
                 </div>
             </div>
         </div>

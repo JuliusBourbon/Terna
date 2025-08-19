@@ -34,7 +34,7 @@ export default function CardPickerModel({onCardSelect, onClose, selectedCards}){
                         const isSelected = selectedCards.includes(cardId);
                         return (
                             <div key={cardId} className={`modal-card-container ${isSelected ? 'disabled' : ''} relative w-14 h-20 my-3 lg:my-15`} onClick={() => {if (!isSelected) {onCardSelect(cardId);}}}>
-                                <span className={`${getCardClasses(cardId)} cursor-pointer absolute scale-[0.27] md:scale-[0.3] lg:scale-[0.5] origin-top-left hover:opacity-70 transition-transform duration-150`}></span>
+                                <span className={`${getCardClasses(cardId)} cursor-pointer absolute scale-[0.5] md:scale-[0.6] lg:scale-[1] origin-top-left hover:opacity-70 transition-transform duration-150`}></span>
                             </div>
                         );
                     })}

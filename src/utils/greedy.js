@@ -87,10 +87,18 @@ export function greedyCapsa(cards) {
 
   // Step 3: sisanya untuk top
   const top = remaining;
+  const topEval = evaluateHand(top);
+
+  const topObj = { cards: top, name: topEval[1], score: topEval[0] };
+  const middleObj = { cards: middle, name: middleRank[1], score: middleRank[0] };
+  const bottomObj = { cards: bottom, name: bottomRank[1], score: bottomRank[0] };
+
+  const totalScore = topObj.score + middleObj.score + bottomObj.score;
 
   return {
-    top: { cards: top, name: evaluateHand(top)[1] },
-    middle: { cards: middle, name: middleRank[1] },
-    bottom: { cards: bottom, name: bottomRank[1] },
+    top: topObj,
+    middle: middleObj,
+    bottom: bottomObj,
+    totalScore
   };
 }
