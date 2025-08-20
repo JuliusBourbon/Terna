@@ -1,6 +1,6 @@
 # ♣ TERNA
 
-**TERNA** is a fun little web app that helps you arrange your **13 cards in Chinese Poker** into the most optimal hands — front, middle, and back.  
+**TERNA** is a fun little web app that helps you arrange your **13 cards in Chinese Poker** into the most optimal hands front, middle, and back.  
 No more headaches figuring out which cards to put where, let the app do the smart sorting for you!
 
 ---
@@ -9,7 +9,7 @@ No more headaches figuring out which cards to put where, let the app do the smar
 - Pick your 13 cards manually or shuffle them randomly.
 - Automatic sorting using a **greedy algorithm** for the best combination.
 - See the **combination name** (Full House, Straight, Pair, etc.) for each hand.
-- Points system included — so you know how strong your setup is.
+- Points system included so you know how strong your setup is.
 - Clean, modern UI built with **React + TailwindCSS**.
 
 ---
@@ -30,7 +30,7 @@ No more headaches figuring out which cards to put where, let the app do the smar
 
 ---
 
-## 🃏 About the Name
+## 🃏 About Terna
 The name **Terna** comes from Latin, meaning *“a set of three.”*  
 Just like how Chinese Poker splits your cards into three rows, the name fits perfectly — short, unique, and with a subtle card-game vibe.
 
