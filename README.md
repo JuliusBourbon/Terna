@@ -48,12 +48,14 @@ Pull requests are welcome! If you’ve got ideas for new features, feel free to 
 ---
 
 ## 💻 Getting Started
-Clone this repo and run locally:
+You can Clone this repo and run locally:
 ```bash
 git clone https://https://github.com/JuliusBourbon/Terna.git
 cd Terna
 npm install
 npm run dev
-
+```
+Or You can just access this website
+https://playterna.vercel.app/
 
 
