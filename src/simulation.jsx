@@ -3,6 +3,7 @@ import CardSlot from "./CardSlot";
 import CardPickerModal from "./CardPickerModal";
 import { greedyCapsa } from "./utils/greedy";
 import { Deck } from "./utils/cards";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Simulation(){
     const [handInfo, setHandInfo] = useState({ top: [0], middle: [0], bottom: [0], totalScore: [0] });
@@ -33,7 +34,7 @@ export default function Simulation(){
 
     const handleSort = () => {
         if (cards.includes(null)) {
-            alert("Isi semua slot dulu sebelum sort!");
+            toast.error("Fill all cards first!");
             return;
         }
 
@@ -64,6 +65,7 @@ export default function Simulation(){
 
     return(
         <div className="bg-gradient-to-b from-slate-900 to-slate-700/30 py-10 sm:py-8 flex justify-around text-white items-center">
+            <Toaster position="top-center" reverseOrder={false} />
             <div className="flex flex-col items-center justify-start">
                 <div className="border-2 border-gray-600 border-dashed p-5 rounded-md">
                     <h1 className="text-lg font-bold mb-2">Combination Point</h1>
