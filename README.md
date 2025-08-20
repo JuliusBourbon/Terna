@@ -43,7 +43,7 @@ Just like how Chinese Poker splits your cards into three rows, the name fits per
 ---
 
 ## 🤝 Contribution
-Pull requests are welcome! If you’ve got ideas for new features (like multiplayer mode 👀), feel free to open an issue.
+Pull requests are welcome! If you’ve got ideas for new features, feel free to open an issue.
 
 ---
 
