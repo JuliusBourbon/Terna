@@ -124,9 +124,9 @@ export default function Simulation(){
                 {/* Grup 1: 3 Kartu */}
                 <div className="mb-6">
                     <div className="flex justify-between items-center">
-                        <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Top Card</h2>
+                        <h2 className="text-sm md:text-lg font-semibold mb-3 text-center text-gray-400">Top Card</h2>
                         {handInfo.top && (
-                            <p className="text-center text-xl mb-3 text-yellow-400 font-bold">
+                            <p className="text-center text-sm md:text-xl mb-3 text-yellow-400 font-bold">
                             {handInfo.top.name} - {handInfo.top.score}
                             </p>
                         )}
@@ -141,9 +141,9 @@ export default function Simulation(){
                 {/* Grup 2: 5 Kartu */}
                 <div className="mb-6">
                     <div className="flex justify-between items-center">
-                        <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Middle Card</h2>
+                        <h2 className="text-sm md:text-lg font-semibold mb-3 text-center text-gray-400">Middle Card</h2>
                         {handInfo.middle && (
-                            <p className="text-center text-xl mb-3 text-yellow-400 font-bold">
+                            <p className="text-center text-sm md:text-xl mb-3 text-yellow-400 font-bold">
                                 {handInfo.middle.name} - {handInfo.middle.score}
                             </p>
                         )}
@@ -158,9 +158,9 @@ export default function Simulation(){
                 {/* Grup 3: 5 Kartu */}
                 <div className="my-6">
                     <div className="flex justify-between items-center">
-                        <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Bottom Card</h2>
+                        <h2 className="text-sm md:text-lg font-semibold mb-3 text-center text-gray-400">Bottom Card</h2>
                         {handInfo.bottom && (
-                            <p className="text-center text-xl mb-3 text-yellow-400 font-bold">
+                            <p className="text-center text-sm md:text-xl mb-3 text-yellow-400 font-bold">
                             {handInfo.bottom.name} - {handInfo.bottom.score}
                             </p>
                         )}

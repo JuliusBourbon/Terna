@@ -19,7 +19,7 @@ const getCardClasses = (cardId) => {
 export default function CardSLot({card, onClick}){
 
     return(
-        <div onClick={onClick} className="w-18 h-28 lg:w-30 lg:h-40 flex justify-center items-center cursor-pointer hover:scale-[1.05] transition-all duration-300">
+        <div onClick={onClick} className="w-14 h-24 lg:w-30 lg:h-40 flex justify-center items-center cursor-pointer hover:scale-[1.05] transition-all duration-300">
             <span className={`${getCardClasses(card)} text-gray-400 font-semibold`}></span>
         </div>
     )
