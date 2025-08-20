@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <nav className='w-full bg-gradient-to-b to-slate-900 from-cyan-800/30 backdrop-blur-xl'>
       <div className='container mx-auto flex items-center justify-between p-4 '>
-        <div className='text-6xl font-bold bg-gradient-to-r from-blue-500 to-cyan-300 bg-clip-text text-transparent'> 
+        <div className='text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-500 to-cyan-300 bg-clip-text text-transparent'> 
           <NavLink to="/">♣</NavLink>
         </div>
 

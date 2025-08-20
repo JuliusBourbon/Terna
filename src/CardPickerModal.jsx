@@ -29,7 +29,7 @@ export default function CardPickerModel({onCardSelect, onClose, selectedCards}){
                     <button onClick={onClose} className="text-white text-3xl leading-none hover:text-gray-300">&times;</button>
                 </div>
 
-                <div className='grid grid-cols-7 lg:grid-cols-13'>
+                <div className='grid grid-cols-6 lg:grid-cols-13'>
                     {Deck.map((cardId) => {
                         const isSelected = selectedCards.includes(cardId);
                         return (
