@@ -25,7 +25,9 @@ function evaluateHand(hand) {
   const uniqueVals = [...new Set(values)];
 
   const isFlush = new Set(suits).size === 1;
-  const isStraight = uniqueVals.length === hand.length && Math.max(...values) - Math.min(...values) === hand.length - 1;
+  const isStraight =
+    uniqueVals.length === hand.length &&
+    Math.max(...values) - Math.min(...values) === hand.length - 1;
 
   const counts = values.reduce((acc, v) => {
     acc[v] = (acc[v] || 0) + 1;
@@ -34,24 +36,42 @@ function evaluateHand(hand) {
   const countsSorted = Object.values(counts).sort((a, b) => b - a);
 
   if (hand.length === 5) {
+    const isRoyalFlush =
+      isFlush &&
+      values.includes(14) && // Ace
+      values.includes(13) && // King
+      values.includes(12) && // Queen
+      values.includes(11) && // Jack
+      values.includes(10);   // Ten
+
+    if (isRoyalFlush) {
+      return [handRanks["Royal Flush"], "Royal Flush"];
+    }
+
     if (isStraight && isFlush) {
       return [handRanks["Straight Flush"], "Straight Flush"];
     }
-    if (countsSorted[0] === 4) return [handRanks["Four of a Kind"], "Four of a Kind"];
-    if (countsSorted[0] === 3 && countsSorted[1] === 2) return [handRanks["Full House"], "Full House"];
+    if (countsSorted[0] === 4)
+      return [handRanks["Four of a Kind"], "Four of a Kind"];
+    if (countsSorted[0] === 3 && countsSorted[1] === 2)
+      return [handRanks["Full House"], "Full House"];
     if (isFlush) return [handRanks["Flush"], "Flush"];
     if (isStraight) return [handRanks["Straight"], "Straight"];
-    if (countsSorted[0] === 3) return [handRanks["Three of a Kind"], "Three of a Kind"];
-    if (countsSorted[0] === 2 && countsSorted[1] === 2) return [handRanks["Two Pair"], "Two Pair"];
+    if (countsSorted[0] === 3)
+      return [handRanks["Three of a Kind"], "Three of a Kind"];
+    if (countsSorted[0] === 2 && countsSorted[1] === 2)
+      return [handRanks["Two Pair"], "Two Pair"];
     if (countsSorted[0] === 2) return [handRanks["Pair"], "Pair"];
     return [handRanks["High Card"], "High Card"];
   } else {
-    // khusus untuk top (3 kartu)
-    if (countsSorted[0] === 3) return [handRanks["Three of a Kind"], "Three of a Kind"];
+    // ✅ khusus untuk top (3 kartu)
+    if (countsSorted[0] === 3)
+      return [handRanks["Three of a Kind"], "Three of a Kind"];
     if (countsSorted[0] === 2) return [handRanks["Pair"], "Pair"];
     return [handRanks["High Card"], "High Card"];
   }
 }
+
 
 // Ambil kombinasi terbaik (n kartu)
 function bestHand(cards, n) {
