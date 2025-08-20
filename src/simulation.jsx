@@ -5,7 +5,7 @@ import { greedyCapsa } from "./utils/greedy";
 import { Deck } from "./utils/cards";
 
 export default function Simulation(){
-    const [handInfo, setHandInfo] = useState({ top: null, middle: null, bottom: null });
+    const [handInfo, setHandInfo] = useState({ top: [0], middle: [0], bottom: [0], totalScore: [0] });
     const [cards, setCards] = useState(Array(13).fill(null));
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(null);
@@ -59,7 +59,7 @@ export default function Simulation(){
     const handleAutoFill = () => {
         const random13 = getRandomCards(13);
         setCards(random13);
-        setHandInfo({ top: null, middle: null, bottom: null });
+        setHandInfo({ top: [0], middle: [0], bottom: [0], totalScore: [0] });
     };
 
     return(
@@ -110,13 +110,13 @@ export default function Simulation(){
                         </p>
                     </div>
                 </div>
-                    {handInfo.totalScore && (
-                        <div className="mt-10 text-center">
-                            <h3 className="text-3xl font-bold">
-                            Total Point: <span className="text-green-400">{handInfo.totalScore}</span>
-                            </h3>
-                        </div>
-                    )}
+                {handInfo.totalScore && (
+                    <div className="mt-10 text-center">
+                        <h3 className="text-3xl font-bold">
+                        Total Point: <span className="text-green-400">{handInfo.totalScore}</span>
+                        </h3>
+                    </div>
+                )}
             </div>
             <div className="flex flex-col items-center justify-center">
                 <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center font-poppins">
@@ -127,7 +127,7 @@ export default function Simulation(){
                     <div className="flex justify-between items-center">
                         <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Top Card</h2>
                         {handInfo.top && (
-                            <p className="text-center text-xl mt-2 mb-3 text-yellow-400 font-bold">
+                            <p className="text-center text-xl mb-3 text-yellow-400 font-bold">
                             {handInfo.top.name} {handInfo.top.score}
                             </p>
                         )}
@@ -144,7 +144,7 @@ export default function Simulation(){
                     <div className="flex justify-between items-center">
                         <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Middle Card</h2>
                         {handInfo.middle && (
-                            <p className="text-center text-xl mt-2 mb-3 text-yellow-400 font-bold">
+                            <p className="text-center text-xl mb-3 text-yellow-400 font-bold">
                                 {handInfo.middle.name} {handInfo.middle.score}
                             </p>
                         )}
@@ -161,7 +161,7 @@ export default function Simulation(){
                     <div className="flex justify-between items-center">
                         <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Bottom Card</h2>
                         {handInfo.bottom && (
-                            <p className="text-center text-xl mt-2 mb-3 text-yellow-400 font-bold">
+                            <p className="text-center text-xl mb-3 text-yellow-400 font-bold">
                             {handInfo.bottom.name} {handInfo.bottom.score}
                             </p>
                         )}
@@ -180,7 +180,7 @@ export default function Simulation(){
 
                 <div className="mt-12 flex gap-4">
                     <button onClick={handleAutoFill} className=" font-bold text-lg bg-gradient-to-br from-[#ff2400]/80 to-pink-500/80 px-3 py-2 rounded-md hover:scale-[1.04] cursor-pointer">Shuffle Card</button>
-                    <button onClick={handleSort} className=" font-bold text-lg bg-gradient-to-br from-slate-900 to-slate-700 px-3 py-2 rounded-md hover:scale-[1.04] cursor-pointer">Sort Card</button>
+                    <button onClick={handleSort} className=" font-bold text-lg bg-gradient-to-br to-[#2d3e83] from-[#2d3f9a] px-3 py-2 rounded-md hover:scale-[1.04] cursor-pointer">Sort Card</button>
                 </div>
             </div>
             <div className="flex flex-col items-center justify-start">

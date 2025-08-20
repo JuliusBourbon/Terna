@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from "./navbar";
 import Home from "./home";
 import Simulation from "./simulation";
+import Footer from "./footer";
 import './index.css'
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         <Route path='/' element={<Home/>}></Route>
         <Route path='/Simulation' element={<Simulation/>}></Route>
       </Routes>
+      <Footer/>
     </div>
   );
 }
