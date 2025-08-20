@@ -64,7 +64,7 @@ export default function Simulation(){
     };
 
     return(
-        <div className="bg-gradient-to-b from-slate-900 to-slate-700/30 py-10 sm:py-8 flex justify-around text-white items-center">
+        <div className="bg-gradient-to-br from-slate-900 to-slate-800/30 py-10 sm:py-8 flex flex-col-reverse lg:flex-row gap-10 justify-around text-white items-center">
             <Toaster position="top-center" reverseOrder={false} />
             <div className="flex flex-col items-center justify-start">
                 <div className="border-2 border-gray-600 border-dashed p-5 rounded-md">
@@ -121,20 +121,17 @@ export default function Simulation(){
                 )}
             </div>
             <div className="flex flex-col items-center justify-center">
-                <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center font-poppins">
-                    Simulation
-                </h1>
                 {/* Grup 1: 3 Kartu */}
                 <div className="mb-6">
                     <div className="flex justify-between items-center">
                         <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Top Card</h2>
                         {handInfo.top && (
                             <p className="text-center text-xl mb-3 text-yellow-400 font-bold">
-                            {handInfo.top.name} {handInfo.top.score}
+                            {handInfo.top.name} - {handInfo.top.score}
                             </p>
                         )}
                     </div>
-                    <div className="flex justify-center gap-2 sm:gap-10">
+                    <div className="flex justify-center gap-2 lg:gap-10">
                         {cards.slice(0, 3).map((card, index) => (
                             <CardSlot key={index} card={card} onClick={() => handleSlotClick(index)} />
                         ))}
@@ -147,11 +144,11 @@ export default function Simulation(){
                         <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Middle Card</h2>
                         {handInfo.middle && (
                             <p className="text-center text-xl mb-3 text-yellow-400 font-bold">
-                                {handInfo.middle.name} {handInfo.middle.score}
+                                {handInfo.middle.name} - {handInfo.middle.score}
                             </p>
                         )}
                     </div>
-                    <div className="flex justify-center gap-2 sm:gap-10">
+                    <div className="flex justify-center gap-2 lg:gap-10">
                         {cards.slice(3, 8).map((card, index) => (
                         <CardSlot key={index + 3} card={card} onClick={() => handleSlotClick(index + 3)} />
                         ))}
@@ -159,17 +156,17 @@ export default function Simulation(){
                 </div>
                 
                 {/* Grup 3: 5 Kartu */}
-                <div>
+                <div className="my-6">
                     <div className="flex justify-between items-center">
                         <h2 className="text-lg font-semibold mb-3 text-center text-gray-400">Bottom Card</h2>
                         {handInfo.bottom && (
                             <p className="text-center text-xl mb-3 text-yellow-400 font-bold">
-                            {handInfo.bottom.name} {handInfo.bottom.score}
+                            {handInfo.bottom.name} - {handInfo.bottom.score}
                             </p>
                         )}
 
                     </div>
-                    <div className="flex justify-center gap-2 sm:gap-10">
+                    <div className="flex justify-center gap-2 lg:gap-10">
                         {cards.slice(8, 13).map((card, index) => (
                         <CardSlot key={index + 8} card={card} onClick={() => handleSlotClick(index + 8)} />
                         ))}
