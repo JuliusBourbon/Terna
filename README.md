@@ -37,8 +37,8 @@ Just like how Chinese Poker splits your cards into three rows, the name fits per
 ---
 
 ## 📸 Screenshots
-![Homepage Screenshot](./assets/homeImg.png)
-![Start Sorting Screenshot](./assets/startSortingImg.png)
+![Homepage Screenshot](./src/assets/homeImg.png)
+![Start Sorting Screenshot](./src/assets/startSortingImg.png)
 
 ---
 
