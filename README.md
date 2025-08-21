@@ -31,7 +31,7 @@ No more headaches figuring out which cards to put where, let the app do the smar
 ---
 
 ## ♣ About Terna
-The name **Terna** comes from Latin, meaning *“a set of three.”*  
+The name **Terna** comes from Latin, meaning *“A set of three.”*  
 Just like how Chinese Poker splits your cards into three rows, the name fits perfectly — short, unique, and with a subtle card-game vibe.
 
 ---
